@@ -5,21 +5,80 @@
         <title>WebSockets - Simple chat</title>
 
         <style>
-        * { font-family:tahoma; font-size:12px; padding:0px; margin:0px; }
-        p { line-height:18px; }
-        div { width:500px; margin-left:auto; margin-right:auto;}
-        #content { padding:5px; background:#ddd; border-radius:5px; overflow-y: scroll;
-                   border:1px solid #CCC; margin-top:10px; height: 160px; }
-        #input { border-radius:2px; border:1px solid #ccc;
-                 margin-top:10px; padding:5px; width:400px;  }
-        #status { width:88px; display:block; float:left; margin-top:15px; }
+        * {
+            font-family: Arial;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+        }
+        p {
+            line-height: 18px;
+        }
+        body {
+            background: #b300b3;
+            justify-content: center;
+        }
+        div {
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #chat {
+            background: #660066;
+            margin-top: 2rem;
+            padding: 0 1.5rem .5rem .5rem;
+            border-radius: .5rem;
+            display: flex;
+            flex-flow: column;
+        }
+        #content {
+            padding: 5px;
+            background: #ffccff; 
+            border-radius: 5px;
+            overflow-y: scroll;
+            border: 2px solid #660066;
+            margin-top: 10px;
+            height: 160px;
+        }
+        #inputs {
+            display: flex;
+            padding: .1rem .5rem 0rem .5rem;
+        }
+        #inputs input, button {
+            border-radius: 4px 0 0 4px;
+            border: 1px solid #ccc;
+            margin-top: 2px;
+            padding: 5px;
+        }
+        input {
+            display: flex;
+            flex-grow: 4;
+            flex-flow: row-nowrap;
+        }
+        button[name="send"] {
+            width: 2rem;
+            background: #ffcc00;
+            border: none;
+            flex-grow: 1;
+            border-radius: 0 4px 4px 0;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ffdb4d;
+        }
         </style>
     </head>
     <body>
-        <div id="content"></div>
-        <div>
-            <span id="status">Connecting...</span>
-            <input type="text" id="input" disabled="disabled" />
+        <div id="chat">
+            <div id="content">
+                <span id="status">Connecting...</span>
+            </div>
+            <div id="inputs">            
+                <input type="text" id="input" disabled="disabled" />
+                <button type="button" name="send">Send</button>
+            </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
